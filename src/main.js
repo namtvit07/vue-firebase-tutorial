@@ -29,3 +29,6 @@ firebase.auth().onAuthStateChanged(function(user) {
     })
   }
 });
+if (navigator.serviceWorker) {
+  navigator.serviceWorker.register('/service-worker.js', {updateViaCache: 'none'});
+}

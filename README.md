@@ -10,6 +10,10 @@ The different steps of the tutorial are break down by commits, so you can step b
 
 ### How to Use
 
+- Set your Firebase credential in `src/main.js`
+
+- Run these commands:
+
 ``` bash
 # install dependencies
 npm install

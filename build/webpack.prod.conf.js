@@ -8,6 +8,9 @@ var CopyWebpackPlugin = require('copy-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+var projectRootPath = path.resolve(__dirname);
+var assetsPath = path.resolve(projectRootPath);
+const SWPrecachePlugin = require('sw-precache-webpack-plugin');
 
 var env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
@@ -94,7 +97,18 @@ var webpackConfig = merge(baseWebpackConfig, {
         to: config.build.assetsSubDirectory,
         ignore: ['.*']
       }
-    ])
+    ]),
+    new SWPrecachePlugin({
+      cacheId: 'vue-nus-demo',
+      filename: 'service-worker.js',
+      minify: true,
+      staticFileGlobsIgnorePatterns: [/\.map$/, /\.json$/],
+      staticFileGlobs: [
+        path.dirname(projectRootPath) +
+          "/dist/**/*.{html,js,css,png,jpg,gif,svg,eot,ttf,woff,woff2}"
+      ],
+      stripPrefix: path.dirname(projectRootPath) +"/dist"
+    })
   ]
 })
 

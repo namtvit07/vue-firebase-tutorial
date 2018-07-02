@@ -1,5 +1,5 @@
 {
-  "name": "vue-firebase-tutorial",
+  "name": "vue-firebase-tutorial-nus",
   "version": "1.0.0",
   "description": "A Vue.js project using Firebase for authentication.",
   "author": "Anas Mammeri <anas.mammeri@gmail.com>",
@@ -72,7 +72,8 @@
     "webpack": "^2.6.1",
     "webpack-dev-middleware": "^1.10.0",
     "webpack-hot-middleware": "^2.18.0",
-    "webpack-merge": "^4.1.0"
+    "webpack-merge": "^4.1.0",
+    "sw-precache-webpack-plugin": "^0.11.4"
   },
   "engines": {
     "node": ">= 4.0.0",
